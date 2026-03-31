@@ -4,9 +4,8 @@ module com.todolist {
     requires java.sql;
     requires jbcrypt;
 
-    // Abrimos los paquetes para que JavaFX pueda acceder a ellos
+    opens com.todolist to javafx.graphics;
     opens com.todolist.controller to javafx.fxml;
-    opens com.todolist.model to javafx.base; // Necesario para que las tablas lean tus objetos
-
+    opens com.todolist.model to javafx.base;
     exports com.todolist;
 }

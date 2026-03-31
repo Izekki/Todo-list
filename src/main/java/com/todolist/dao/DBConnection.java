@@ -8,12 +8,11 @@ import java.sql.SQLException;
 public class DBConnection {
     private static Connection connection = null;
 
-    private DBConnection() {} // Constructor privado para Singleton
+    private DBConnection() {}
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             try {
-                // MySQL Driver se carga automáticamente en versiones modernas
                 connection = DriverManager.getConnection(
                         AppConfig.DB_URL,
                         AppConfig.DB_USER,
