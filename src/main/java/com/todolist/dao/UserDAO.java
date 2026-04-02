@@ -26,4 +26,25 @@ public class UserDAO {
         } catch (SQLException e) { e.printStackTrace(); }
         return null;
     }
+
+    public boolean register(User user) {
+        String sql = "INSERT INTO users (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, rfc, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, user.getNombre());
+            ps.setString(2, user.getApellidoPaterno());
+            ps.setString(3, user.getApellidoMaterno());
+            ps.setDate(4, java.sql.Date.valueOf(user.getFechaNacimiento()));
+            ps.setString(5, user.getRfc());
+            ps.setString(6, user.getPasswordHash());
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

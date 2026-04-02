@@ -6,4 +6,5 @@ public class PasswordHasher {
     public static boolean check(String password, String hashed) {
         return BCrypt.checkpw(password, hashed);
     }
+    public static String hash(String p) { return BCrypt.hashpw(p, BCrypt.gensalt()); }
 }

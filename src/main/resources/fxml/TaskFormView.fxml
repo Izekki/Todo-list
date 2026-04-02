@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="15.0" alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.todolist.controller.TaskFormController"
+      prefWidth="400.0" stylesheets="@../css/styles.css">
+
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+    <Text text="Nueva Tarea" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+    <VBox spacing="5">
+        <Label text="Título (Obligatorio):" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="txtTitulo" promptText="Ej: Estudiar para el examen de Java"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Descripción (Opcional):"/>
+        <TextArea fx:id="txtDescripcion" prefHeight="80" promptText="Detalles adicionales..." wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Fecha y Hora de entrega (Obligatorio):" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10">
+            <DatePicker fx:id="dpFecha" prefWidth="180"/>
+            <ComboBox fx:id="cbHora" prefWidth="80" promptText="HH"/>
+            <Label text=":" style="-fx-font-size: 18;"/>
+            <ComboBox fx:id="cbMinutos" prefWidth="80" promptText="mm"/>
+        </HBox>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" onAction="#onCancel" style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
+        <Button text="Guardar Tarea" onAction="#onSave" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+</VBox>

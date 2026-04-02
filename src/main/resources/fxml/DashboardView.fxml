@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.todolist.controller.DashboardController" prefHeight="600" prefWidth="800">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label fx:id="lblBienvenida" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Hola, Usuario"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Nueva Tarea +" onAction="#onAddTask" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Cerrar Sesión" onAction="#onLogout" style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <Tab text="Pendientes">
+            <TableView fx:id="tblPending">
+                <columns>
+                    <TableColumn fx:id="colTitleP" text="Tarea" prefWidth="300"/>
+                    <TableColumn fx:id="colDateP" text="Fecha" prefWidth="150"/>
+                    <TableColumn fx:id="colActionP" text="Acción" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab text="Terminadas">
+            <TableView fx:id="tblCompleted">
+                <columns>
+                    <TableColumn fx:id="colTitleC" text="Tarea" prefWidth="300"/>
+                    <TableColumn fx:id="colDateC" text="Fecha" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </Tab>
+    </TabPane>
+</VBox>
