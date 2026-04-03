@@ -1,0 +1,210 @@
+/* Global Tech-Dark & Neon Aesthetic */
+.root {
+    -fx-base: #0d1117;
+    -fx-background-color: #0d1117;
+    -fx-control-inner-background: #161b22;
+    -fx-text-fill: #e6edf3;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    
+    /* Softer Neon Colors for Readability */
+    -neon-blue: #00d4ff;
+    -neon-purple: #9d4edd;
+    -neon-green: #2ecc71;
+    -neon-red: #e74c3c;
+    -neon-yellow: #f1c40f;
+    -dark-bg: #0f1624;
+    -card-bg: #1a2333;
+}
+
+.text {
+    -fx-fill: #e6edf3;
+}
+
+.label {
+    -fx-text-fill: #e6edf3;
+}
+
+/* Titles */
+.title-text {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-fill: -neon-blue;
+    -fx-effect: dropshadow(gaussian, rgba(0, 212, 255, 0.4), 8, 0, 0, 0);
+}
+
+/* Text Fields & Areas */
+.text-field, .password-field, .text-area {
+    -fx-background-color: #010409;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #8b949e;
+    -fx-padding: 8;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: -neon-blue;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 242, 255, 0.3), 5, 0, 0, 0);
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: -neon-blue;
+    -fx-border-width: 1;
+    -fx-text-fill: -neon-blue;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s;
+}
+
+.button:hover {
+    -fx-background-color: -neon-blue;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(0, 212, 255, 0.3), 8, 0, 0, 0);
+}
+
+.button-primary {
+    -fx-background-color: -neon-blue;
+    -fx-text-fill: black;
+}
+
+.button-danger {
+    -fx-border-color: -neon-red;
+    -fx-text-fill: -neon-red;
+}
+.button-danger:hover {
+    -fx-background-color: -neon-red;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(231, 76, 60, 0.3), 8, 0, 0, 0);
+}
+
+.button-view {
+    -fx-border-color: -neon-blue;
+    -fx-text-fill: -neon-blue;
+}
+.button-view:hover {
+    -fx-background-color: -neon-blue;
+    -fx-text-fill: black;
+}
+
+.button-edit {
+    -fx-border-color: -neon-yellow;
+    -fx-text-fill: -neon-yellow;
+}
+.button-edit:hover {
+    -fx-background-color: -neon-yellow;
+    -fx-text-fill: black;
+}
+
+.button-restore {
+    -fx-border-color: -neon-purple;
+    -fx-text-fill: -neon-purple;
+}
+.button-restore:hover {
+    -fx-background-color: -neon-purple;
+    -fx-text-fill: white;
+}
+
+.button-success {
+    -fx-border-color: -neon-green;
+    -fx-text-fill: -neon-green;
+}
+.button-success:hover {
+    -fx-background-color: -neon-green;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(46, 204, 113, 0.3), 8, 0, 0, 0);
+}
+
+/* Tables */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: #161b22;
+    -fx-border-color: transparent transparent #30363d transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -neon-blue;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 10;
+    -fx-text-fill: #e6edf3;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #0d1117;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #161b22;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(0, 242, 255, 0.1);
+    -fx-border-color: -neon-blue;
+    -fx-border-width: 0 0 0 4;
+}
+
+/* Tabs */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-padding: 10 20;
+}
+
+.tab:selected {
+    -fx-background-color: #161b22;
+    -fx-border-color: -neon-blue;
+    -fx-border-width: 0 0 3 0;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: -neon-blue;
+}
+
+/* Combo Box & Date Picker */
+.combo-box, .date-picker {
+    -fx-background-color: #010409;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1;
+}
+
+.combo-box .list-view, .date-picker-popup .month-year-pane {
+     -fx-background-color: #161b22;
+}
+
+/* Scroll Bars */
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #30363d;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: -neon-blue;
+}
+
+/* CARDS / PANES */
+.card {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 20;
+}

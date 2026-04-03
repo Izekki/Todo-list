@@ -52,4 +52,45 @@ public class TaskDAO {
         }
         return tasks;
     }
+
+    public boolean updateTask(Task task) {
+        String sql = "UPDATE tasks SET titulo = ?, descripcion = ?, fecha_realizacion = ?, estado = ? WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, task.getTitulo());
+            ps.setString(2, task.getDescripcion());
+            ps.setTimestamp(3, java.sql.Timestamp.valueOf(task.getFechaRealizacion()));
+            ps.setString(4, task.getEstado());
+            ps.setInt(5, task.getId());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteTask(int taskId) {
+        String sql = "DELETE FROM tasks WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, taskId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateTaskStatus(int taskId, String status) {
+        String sql = "UPDATE tasks SET estado = ? WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status);
+            ps.setInt(2, taskId);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

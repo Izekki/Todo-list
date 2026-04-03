@@ -2,36 +2,51 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
 
-<VBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.todolist.controller.DashboardController" prefHeight="600" prefWidth="800">
+<VBox spacing="25" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.todolist.controller.DashboardController" prefHeight="800" prefWidth="1200"
+      style="-fx-background-color: -dark-bg;">
 
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
 
-    <HBox alignment="CENTER_LEFT" spacing="20">
-        <Label fx:id="lblBienvenida" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Hola, Usuario"/>
+    <HBox alignment="CENTER_LEFT" spacing="30">
+        <VBox>
+            <Text text="TECH_DASHBOARD" styleClass="title-text" style="-fx-font-size: 32;"/>
+            <Label fx:id="lblBienvenida" style="-fx-font-size: 14; -fx-text-fill: #8b949e;" text="SISTEMA OPERATIVO DE TAREAS ACTIVE"/>
+        </VBox>
+        
         <Region HBox.hgrow="ALWAYS" />
-        <Button text="Nueva Tarea +" onAction="#onAddTask" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
-        <Button text="Cerrar Sesión" onAction="#onLogout" style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+        
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="NUEVA TAREA +" onAction="#onAddTask" styleClass="button-success"/>
+            <Button text="SEGURIDAD" onAction="#onChangePassword" />
+            <Button text="SALIR" onAction="#onLogout" styleClass="button-danger"/>
+        </HBox>
     </HBox>
 
-    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-        <Tab text="Pendientes">
-            <TableView fx:id="tblPending">
-                <columns>
-                    <TableColumn fx:id="colTitleP" text="Tarea" prefWidth="300"/>
-                    <TableColumn fx:id="colDateP" text="Fecha" prefWidth="150"/>
-                    <TableColumn fx:id="colActionP" text="Acción" prefWidth="150"/>
-                </columns>
-            </TableView>
-        </Tab>
-        <Tab text="Terminadas">
-            <TableView fx:id="tblCompleted">
-                <columns>
-                    <TableColumn fx:id="colTitleC" text="Tarea" prefWidth="300"/>
-                    <TableColumn fx:id="colDateC" text="Fecha" prefWidth="150"/>
-                </columns>
-            </TableView>
-        </Tab>
-    </TabPane>
+    <VBox VBox.vgrow="ALWAYS" styleClass="card">
+        <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <Tab text="BLOQUE_PENDIENTES">
+                <TableView fx:id="tblPending">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <columns>
+                        <TableColumn fx:id="colTitleP" text="DESCRIPCIÓN_TAREA" prefWidth="400"/>
+                        <TableColumn fx:id="colDateP" text="FECHA_LÍMITE" prefWidth="200"/>
+                        <TableColumn fx:id="colActionP" text="PROTOCOLOS_ACCIÓN" prefWidth="420" minWidth="420"/>
+                    </columns>
+                </TableView>
+            </Tab>
+            <Tab text="BLOQUE_TERMINADAS">
+                <TableView fx:id="tblCompleted">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <columns>
+                        <TableColumn fx:id="colTitleC" text="DESCRIPCIÓN_TAREA" prefWidth="400"/>
+                        <TableColumn fx:id="colDateC" text="FECHA_FINALIZACIÓN" prefWidth="200"/>
+                        <TableColumn fx:id="colActionC" text="PROTOCOLOS_ACCIÓN" prefWidth="420" minWidth="420"/>
+                    </columns>
+                </TableView>
+            </Tab>
+        </TabPane>
+    </VBox>
 </VBox>

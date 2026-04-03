@@ -1,38 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.todolist.controller.RegisterController"
-      prefWidth="400.0" stylesheets="@../css/login.css">
+<StackPane alignment="CENTER" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.todolist.controller.RegisterController"
+           prefHeight="700.0" prefWidth="900.0"
+           style="-fx-background-color: -dark-bg;">
 
-    <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/></padding>
+    <VBox spacing="25.0" maxWidth="500" maxHeight="650" styleClass="card" alignment="CENTER">
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+        </padding>
 
-    <Text text="Registro de Usuario" styleClass="title-text"/>
+        <Text text="NUEVO_REGISTRO" styleClass="title-text" style="-fx-font-size: 24;"/>
 
-    <GridPane hgap="10" vgap="10">
-        <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <GridPane hgap="15" vgap="15" alignment="CENTER">
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label text="NOMBRE(S)" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <TextField fx:id="txtNombre" promptText="Nombre"/>
+            </VBox>
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label text="PATERNO" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <TextField fx:id="txtApPaterno" promptText="Paterno"/>
+            </VBox>
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label text="MATERNO" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <TextField fx:id="txtApMaterno" promptText="Materno"/>
+            </VBox>
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label text="RFC" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <TextField fx:id="txtRfc" promptText="RFC Oficial"/>
+            </VBox>
+            <VBox spacing="5" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                <Label text="FECHA DE NACIMIENTO" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <DatePicker fx:id="dpFechaNac" prefWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="5" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                <Label text="CLAVE DE ACCESO" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <PasswordField fx:id="txtPassword" promptText="••••••••"/>
+            </VBox>
+        </GridPane>
 
-        <Label text="Ap. Paterno:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <TextField fx:id="txtApPaterno" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-
-        <Label text="Ap. Materno:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <TextField fx:id="txtApMaterno" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-        <Label text="F. Nacimiento:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <DatePicker fx:id="dpFechaNac" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="200"/>
-
-        <Label text="RFC:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <TextField fx:id="txtRfc" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-
-        <Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-    </GridPane>
-
-    <Button text="Registrarme" onAction="#onRegister" prefWidth="Infinity" styleClass="login-button"/>
-    <Hyperlink text="Volver al Login" onAction="#onBackToLogin"/>
-</VBox>
+        <VBox spacing="10" alignment="CENTER">
+            <Button text="REGISTRAR SISTEMA" onAction="#onRegister" prefWidth="Infinity" styleClass="button-primary"/>
+            <Hyperlink text="VOLVER AL LOGIN" onAction="#onBackToLogin" style="-fx-text-fill: #8b949e; -fx-font-size: 11;"/>
+        </VBox>
+    </VBox>
+</StackPane>

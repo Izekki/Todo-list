@@ -14,17 +14,21 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
+        primaryStage.setMinWidth(900);
+        primaryStage.setMinHeight(600);
         setRoot("LoginView","Iniciar Sesión");
     }
 
-    public static void setRoot(String fxml, String title) throws IOException{
+    public static FXMLLoader setRoot(String fxml, String title) throws IOException{
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/" + fxml + ".fxml"));
         Scene scene = new Scene(loader.load());
+        String css = Main.class.getResource("/css/tech-dark.css").toExternalForm();
+        scene.getStylesheets().add(css);
         primaryStage.setTitle(title);
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.show();
-
+        return loader;
     }
 
     public static void main(String[] args) { launch(); }

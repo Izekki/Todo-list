@@ -5,31 +5,34 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.todolist.controller.LoginController"
-      prefHeight="400.0" prefWidth="350.0"
-      stylesheets="@../css/login.css">
+<StackPane alignment="CENTER" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.todolist.controller.LoginController"
+           prefHeight="600.0" prefWidth="800.0">
 
-    <padding>
-        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
-    </padding>
+    <VBox spacing="30.0" maxWidth="400" maxHeight="500" styleClass="card" alignment="CENTER">
+        <padding>
+            <Insets bottom="50.0" left="40.0" right="40.0" top="50.0"/>
+        </padding>
 
-    <Text text="Iniciar Sesión" styleClass="title-text"/>
+        <Text text="TO-DO LIST APP" styleClass="title-text"/>
+        
+        <VBox spacing="20.0" alignment="CENTER_LEFT" fillWidth="true">
+            <VBox spacing="8.0">
+                <Label text="RFC DE USUARIO" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 11;"/>
+                <TextField fx:id="txtRfc" promptText="Ingrese su RFC"/>
+            </VBox>
 
-    <VBox spacing="5.0">
-        <Label text="RFC:"/>
-        <TextField fx:id="txtRfc" promptText="Ingrese su RFC"/>
+            <VBox spacing="8.0">
+                <Label text="CONTRASEÑA" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 11;"/>
+                <PasswordField fx:id="txtPassword" promptText="••••••••"/>
+            </VBox>
+        </VBox>
+
+        <VBox spacing="15.0" alignment="CENTER">
+            <Button text="INICIAR SESIÓN" onAction="#onLogin" prefWidth="Infinity" styleClass="button-primary"/>
+            <Hyperlink text="¿SIN CUENTA? CREAR UNA" onAction="#onGoToRegister" style="-fx-text-fill: #8b949e; -fx-font-size: 11;"/>
+        </VBox>
     </VBox>
 
-    <VBox spacing="5.0">
-        <Label text="Contraseña:"/>
-        <PasswordField fx:id="txtPassword" promptText="********"/>
-    </VBox>
-
-    <VBox spacing="10.0" alignment="CENTER">
-        <Button text="Entrar" onAction="#onLogin" prefWidth="Infinity" styleClass="login-button"/>
-        <Hyperlink text="¿No tienes cuenta? Regístrate aquí" onAction="#onGoToRegister"/>
-    </VBox>
-
-</VBox>
+</StackPane>

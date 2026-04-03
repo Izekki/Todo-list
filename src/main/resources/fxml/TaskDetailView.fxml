@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<StackPane alignment="CENTER" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.todolist.controller.TaskDetailController"
+           prefHeight="600.0" prefWidth="800.0"
+           style="-fx-background-color: -dark-bg;">
+
+    <VBox spacing="25.0" maxWidth="500" styleClass="card">
+        <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+        <Text text="DETALLE_REGISTRO" styleClass="title-text" style="-fx-font-size: 24;"/>
+        <Separator style="-fx-opacity: 0.1;"/>
+
+        <VBox spacing="15">
+            <VBox spacing="5">
+                <Label text="IDENTIFICADOR_TAREA" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <Text fx:id="txtTitulo" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-fill: white;" wrappingWidth="420"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="BITÁCORA_CONTENIDO" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                <ScrollPane prefHeight="100" style="-fx-background-color: transparent;">
+                    <Text fx:id="txtDescripcion" style="-fx-fill: #e6edf3;" wrappingWidth="400"/>
+                </ScrollPane>
+            </VBox>
+
+            <HBox spacing="40">
+                <VBox spacing="5">
+                    <Label text="CRONOLOGÍA" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                    <Label fx:id="lblFecha" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14;"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="ESTADO_ACTUAL" style="-fx-font-weight: bold; -fx-text-fill: -neon-blue; -fx-font-size: 10;"/>
+                    <Label fx:id="lblEstado" style="-fx-font-weight: bold; -fx-text-fill: -neon-green; -fx-font-size: 14;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <HBox spacing="15" alignment="CENTER_RIGHT">
+            <Button text="VOLVER" onAction="#onClose" />
+            <Button text="MODIFICAR_REGISTRO" onAction="#onEdit" styleClass="button-edit" prefWidth="200"/>
+        </HBox>
+    </VBox>
+</StackPane>
